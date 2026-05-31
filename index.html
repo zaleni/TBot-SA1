@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MagicBot-R0: 2D-3D Latent World Action Modeling for Generalizable Robot Control."
+    />
+    <title>MagicBot-R0 | 2D-3D Latent World Action Modeling</title>
+    <link rel="icon" type="image/png" href="assets/logos/magicbot_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="#top">
+          <img class="brand-icon" src="assets/logos/magicbot_icon.png" alt="" aria-hidden="true" />
+          <span>MagicBot-R0</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" data-nav-links>
+          <a href="#abstract">Abstract</a>
+          <a href="#method">Method</a>
+          <a href="#training">Training</a>
+          <a href="#experiments">Experiments</a>
+          <a href="#videos">Videos</a>
+          <a href="#citation">Citation</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <canvas class="spatial-canvas" data-spatial-scene aria-hidden="true"></canvas>
+        <div class="spatial-field" aria-hidden="true">
+          <div class="space-plane plane-back"></div>
+          <div class="space-plane plane-floor"></div>
+          <div class="space-ray ray-1"></div>
+          <div class="space-ray ray-2"></div>
+          <div class="space-ray ray-3"></div>
+          <div class="space-ray ray-4"></div>
+          <div class="space-ray ray-5"></div>
+          <div class="space-ray ray-6"></div>
+          <div class="space-axis axis-x"></div>
+          <div class="space-axis axis-y"></div>
+        </div>
+        <div class="container hero-inner">
+          <img class="hero-logo" src="assets/logos/magicbotr0slogan.png" alt="MagicBot-R0" />
+          <p class="venue">Manuscript, 2026</p>
+          <h1>2D-3D Latent World Action Modeling for Generalizable Robot Control</h1>
+
+          <div class="authors" aria-label="Authors">
+            <div class="author-row">
+              <span class="author-chip"><strong>Jiahao Jiang</strong></span>
+              <span class="author-chip">Jianing Zhang</span>
+              <span class="author-chip">Zhenhan Yin</span>
+              <span class="author-chip">Ruidong Chen</span>
+              <span class="author-chip">Sen Wang</span>
+              <span class="author-chip">Zhaoshu Yu</span>
+              <span class="author-chip">Pengpeng Zeng</span>
+            </div>
+            <div class="author-row">
+              <span class="author-chip">XiaoFeng Cao</span>
+              <span class="author-chip">Xuanhan Wang<sup>&dagger;&diamond;</sup></span>
+              <span class="author-chip">Jingkuan Song<sup>&dagger;</sup></span>
+              <span class="author-chip">Heng Tao Shen</span>
+            </div>
+            <div class="author-notes" aria-label="Author notes">
+              <span><sup>&dagger;</sup>Project Leader</span>
+              <span><sup>&diamond;</sup>Corresponding Author</span>
+            </div>
+          </div>
+
+          <div class="affiliations">
+            <span>Multi-Modal Spatial Intelligence Lab, Tongji University</span>
+            <span>Shanghai Innovation Institution</span>
+          </div>
+
+          <div class="resource-actions" aria-label="Project resources">
+            <a class="resource-button primary" href="assets/paper/manuscript.pdf">Paper</a>
+            <a class="resource-button" href="#citation">BibTeX</a>
+            <a class="resource-button" href="#videos">Videos</a>
+            <span class="resource-button muted" aria-disabled="true">Code coming soon</span>
+            <span class="resource-button muted" aria-disabled="true">Data coming soon</span>
+          </div>
+
+          <div class="logo-strip compact" aria-label="Affiliation logos">
+            <img src="assets/logos/tongji-logo.png" alt="Tongji University logo" />
+            <img src="assets/logos/sii-logo.jpg" alt="Shanghai Innovation Institution logo" />
+            <img src="assets/logos/sig-logo.jpg" alt="Spatial Intelligence Group logo" />
+          </div>
+        </div>
+      </section>
+
+      <section class="teaser container reveal">
+        <div class="paper-figure">
+          <object
+            data="assets/figures/motivation.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            type="application/pdf"
+            aria-label="MagicBot-R0 overview figure"
+          >
+            <div class="figure-fallback">
+              <div class="fallback-node">2D observation</div>
+              <div class="fallback-arrow"></div>
+              <div class="fallback-node accent">Latent 3D world</div>
+              <div class="fallback-arrow"></div>
+              <div class="fallback-node">Robot action</div>
+            </div>
+          </object>
+        </div>
+        <p class="caption">
+          <strong>MagicBot-R0</strong> is a World-Spatial-Action model for robot control.
+          It learns temporal 2D-3D scene evolution and maps the learned spatial world
+          representation to executable action chunks.
+        </p>
+      </section>
+
+      <section id="abstract" class="section container reveal">
+        <div class="section-title centered">
+          <p class="eyebrow">Abstract</p>
+          <h2>Bridging 2D-centric visual learning and 3D-centric embodied interaction</h2>
+        </div>
+        <p class="abstract-text">
+          Embodied foundation models have evolved into Vision-Language-Action (VLA) and
+          World-Action-Model (WAM) paradigms. Although impressive, both paradigms are
+          inherently 2D-centric and lack innate understanding of 3D world dynamics,
+          creating an understanding-to-execution gap for physical robot interaction.
+          We present <strong>MagicBot-R0</strong>, a robot foundation model built upon
+          <strong>World-Spatial-Action (WSA)</strong> modeling. WSA jointly learns latent
+          causal reasoning from 2D observations to 3D goal-directed actions through
+          subgoal image generation, subgoal 3D scene prediction, and 3D goal-conditioned
+          robot action forecasting.
+        </p>
+
+        <div class="metric-row" aria-label="Main empirical claims">
+          <article>
+            <strong data-count="6">0</strong>
+            <span>K hours demonstration data</span>
+          </article>
+          <article>
+            <strong data-count="1">0</strong>
+            <span>K hours real-robot data</span>
+          </article>
+          <article>
+            <strong data-count="92">0</strong>
+            <span>% success on RobotWin2.0</span>
+          </article>
+          <article>
+            <strong data-count="10">0</strong>
+            <span>% real-world improvement</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section soft-section reveal">
+        <div class="container">
+          <div class="section-title centered">
+            <p class="eyebrow">Contributions</p>
+            <h2>A 2D-3D world-action foundation model for robot control</h2>
+          </div>
+          <div class="contribution-grid">
+            <article>
+              <span class="number">01</span>
+              <h3>World-Spatial-Action paradigm</h3>
+              <p>
+                WSA unifies instruction-aligned semantic understanding, causal 3D world
+                modeling, and closed-loop physical execution in a single model.
+              </p>
+            </article>
+            <article>
+              <span class="number">02</span>
+              <h3>MagicBot-R0 architecture</h3>
+              <p>
+                A Mixture-of-Transformers design coherently couples future-video,
+                future-3D, and continuous-action experts.
+              </p>
+            </article>
+            <article>
+              <span class="number">03</span>
+              <h3>Data-efficient learning</h3>
+              <p>
+                The model targets strong simulation and real-robot performance with
+                substantially less real robot data than typical large-scale VLAs.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section container reveal">
+        <div class="section-title">
+          <p class="eyebrow">Method</p>
+          <h2>World-Spatial-Action modeling</h2>
+          <p>
+            A robot policy should not only predict what action to take, but also learn
+            what spatial change that action is expected to cause. MagicBot-R0 models
+            future 2D appearance, latent future-3D scene evolution, and executable robot
+            actions in one coupled world-action graph.
+          </p>
+        </div>
+
+        <div class="formula-grid">
+          <article>
+            <h3>VLA policy</h3>
+            <p class="formula">A<sub>t</sub> ~ pi(A<sub>t</sub> | o<sub>t</sub>)</p>
+            <p>Direct action prediction from observations, language, and proprioception.</p>
+          </article>
+          <article>
+            <h3>World Action Model</h3>
+            <p class="formula">(v<sup>+</sup><sub>t</sub>, A<sub>t</sub>) ~ p(v<sup>+</sup><sub>t</sub>, A<sub>t</sub> | o<sub>t</sub>)</p>
+            <p>Couples action learning with future visual dynamics, but remains mainly 2D.</p>
+          </article>
+          <article class="emphasis">
+            <h3>World-Spatial-Action</h3>
+            <p class="formula">(v<sup>+</sup><sub>t</sub>, g<sub>t</sub>, A<sub>t</sub>) ~ p(v<sup>+</sup><sub>t</sub>, g<sub>t</sub>, A<sub>t</sub> | o<sub>t</sub>)</p>
+            <p>Introduces latent future-3D tokens to model spatial action consequences.</p>
+          </article>
+        </div>
+
+        <div class="architecture-block">
+          <div class="architecture-diagram" aria-label="MagicBot-R0 architecture diagram">
+            <div class="diagram-space" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="token-row">
+              <div class="token current">Current observation<br />instruction<br />proprioception</div>
+            </div>
+            <div class="token-row three">
+              <div class="token video">Future 2D<br />visual expert</div>
+              <div class="token spatial">Latent future-3D<br />spatial expert</div>
+              <div class="token action">Continuous action<br />expert</div>
+            </div>
+            <div class="attention-band">Structured WSA attention / Mixture-of-Transformers coupling</div>
+            <div class="token-row two">
+              <div class="token train">Training: video flow + 3D latent alignment + action flow</div>
+              <div class="token infer">Inference: direct closed-loop action chunks</div>
+            </div>
+          </div>
+          <div class="architecture-notes">
+            <article>
+              <h3>Video expert</h3>
+              <p>Predicts future visual latents and provides dense temporal supervision for task-relevant scene evolution.</p>
+            </article>
+            <article>
+              <h3>Future-3D expert</h3>
+              <p>Uses view-organized slot tokens aligned with geometry-aware latent features to model post-interaction spatial structure.</p>
+            </article>
+            <article>
+              <h3>Action expert</h3>
+              <p>Predicts continuous action chunks conditioned on latent future-3D tokens, yielding a 2D-3D grounded inverse dynamics formulation.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="training" class="section soft-section reveal">
+        <div class="container">
+          <div class="section-title centered">
+            <p class="eyebrow">Training And Inference</p>
+            <h2>Learning spatial consequences without explicit 3D supervision</h2>
+          </div>
+          <div class="training-grid">
+            <article>
+              <h3>Future-video flow matching</h3>
+              <p>
+                Current visual tokens condition a future-video flow objective, encouraging
+                the model to encode how the scene should evolve under the intended task.
+              </p>
+            </article>
+            <article>
+              <h3>Future-3D latent alignment</h3>
+              <p>
+                Compact future-3D slot tokens are projected into a geometry-aware latent
+                space and aligned to frozen target features, without depth maps or
+                calibrated reconstruction.
+              </p>
+            </article>
+            <article>
+              <h3>Action flow matching</h3>
+              <p>
+                Continuous action chunks are optimized with a flow-matching objective and
+                conditioned on the learned latent future-3D representation.
+              </p>
+            </article>
+            <article>
+              <h3>Closed-loop deployment</h3>
+              <p>
+                At test time, future RGB generation is removed. MagicBot-R0 denoises
+                action chunks while recomputing latent future-3D tokens internally.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiments" class="section container reveal">
+        <div class="section-title">
+          <p class="eyebrow">Experiments</p>
+          <h2>Simulation and real-robot evaluation</h2>
+          <p>
+            Quantitative tables are prepared for the final numbers. The current page
+            keeps only the claims already present in the manuscript draft.
+          </p>
+        </div>
+
+        <div class="table-grid">
+          <div class="result-table-wrap">
+            <h3>Main results</h3>
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Evaluation</th>
+                  <th>Setting</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>RobotWin2.0</td>
+                  <td>Simulation manipulation benchmark</td>
+                  <td>92% success rate</td>
+                </tr>
+                <tr>
+                  <td>Real-world tasks</td>
+                  <td>Physical robot manipulation</td>
+                  <td>+10% boosted performance</td>
+                </tr>
+                <tr>
+                  <td>Data scale</td>
+                  <td>Pre-training demonstrations</td>
+                  <td>6K hours total, 1K real robot</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="result-table-wrap">
+            <h3>Ablations to report</h3>
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Variant</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>w/o future-3D stream</td>
+                  <td>Measure the value of latent spatial consequence modeling.</td>
+                </tr>
+                <tr>
+                  <td>w/o future-video objective</td>
+                  <td>Measure the value of dense temporal world supervision.</td>
+                </tr>
+                <tr>
+                  <td>w/o WSA attention</td>
+                  <td>Measure whether structured cross-stream coupling is necessary.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="section soft-section reveal">
+        <div class="container">
+          <div class="section-title centered">
+            <p class="eyebrow">Qualitative Results</p>
+            <h2>Videos and visualizations</h2>
+            <p>These slots are intentionally left as research-result placeholders for later robot videos and visualizations.</p>
+          </div>
+
+          <div class="video-grid">
+            <article>
+              <div class="video-placeholder">Teaser video</div>
+              <h3>Overview</h3>
+              <p>Problem motivation, WSA modeling intuition, simulation, and real-robot results.</p>
+            </article>
+            <article>
+              <div class="video-placeholder">Simulation rollouts</div>
+              <h3>RobotWin2.0</h3>
+              <p>Task-level clips for manipulation categories and generalization settings.</p>
+            </article>
+            <article>
+              <div class="video-placeholder">Real robot rollouts</div>
+              <h3>Physical experiments</h3>
+              <p>Cross-scene, cross-object, and instruction-conditioned manipulation trials.</p>
+            </article>
+            <article>
+              <div class="video-placeholder">2D-3D visualization</div>
+              <h3>Spatial world modeling</h3>
+              <p>Future image, latent/future geometry visualization, and executed action side by side.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="citation" class="section container reveal">
+        <div class="section-title">
+          <p class="eyebrow">Paper</p>
+          <h2>Manuscript and citation</h2>
+        </div>
+
+        <div class="paper-resource">
+          <a class="resource-button primary" href="assets/paper/manuscript.pdf">Open manuscript PDF</a>
+          <p>The PDF copy used by this website is stored at <code>website/assets/paper/manuscript.pdf</code>.</p>
+        </div>
+
+        <div class="bibtex-card">
+          <button class="copy-button" type="button" data-copy-target="bibtex">Copy</button>
+          <pre id="bibtex"><code>@misc{jiang2026magicbotr0,
+  title     = {MagicBot-R0: 2D-3D Latent World Action Modeling for Generalizable Robot Control},
+  author    = {Jiang, Jiahao and Zhang, Jianing and Yin, Zhenhan and Chen, Ruidong and Wang, Sen and Yu, Zhaoshu and Zeng, Pengpeng and Cao, XiaoFeng and Wang, Xuanhan and Song, Jingkuan and Shen, Heng Tao},
+  year      = {2026},
+  note      = {Manuscript}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>MagicBot-R0</span>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
