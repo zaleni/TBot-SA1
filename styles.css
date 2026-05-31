@@ -416,97 +416,61 @@ pre,
 }
 
 .resource-actions {
-  margin-top: 24px;
-  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 24px auto 0;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(213, 224, 235, 0.88);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 14px 34px rgba(23, 32, 51, 0.08);
+  backdrop-filter: blur(14px);
 }
 
-.resource-button {
-  min-height: 44px;
+.resource-link {
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(205, 218, 231, 0.9);
-  border-radius: 8px;
-  padding: 0 16px 0 10px;
-  color: var(--ink);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 250, 252, 0.86));
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.95rem;
-  line-height: 1;
-  box-shadow: 0 10px 24px rgba(23, 32, 51, 0.07);
-  backdrop-filter: blur(12px);
-  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-}
-
-.resource-button::before {
-  content: attr(data-icon);
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 30px;
+  border: 1px solid transparent;
   border-radius: 7px;
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  font-family: "JetBrains Mono", Consolas, monospace;
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  padding: 0 13px;
+  color: #243047;
+  background: transparent;
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: color 150ms ease, background 150ms ease, border-color 150ms ease, transform 150ms ease;
 }
 
-.resource-button:hover {
-  transform: translateY(-2px);
-  border-color: rgba(23, 109, 122, 0.55);
-  box-shadow: 0 16px 34px rgba(23, 32, 51, 0.12);
+.resource-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(213, 224, 235, 0.95);
+  background: rgba(255, 255, 255, 0.82);
+  color: #102033;
 }
 
-.resource-button:focus-visible {
+.resource-link:focus-visible {
   outline: 3px solid rgba(60, 111, 190, 0.24);
   outline-offset: 3px;
 }
 
-.resource-button.primary {
+.resource-link.primary {
   color: #ffffff;
   background: linear-gradient(135deg, #176d7a, #315ea8);
-  border-color: rgba(23, 109, 122, 0.22);
+  border-color: rgba(23, 109, 122, 0.18);
+  box-shadow: 0 8px 18px rgba(23, 109, 122, 0.18);
 }
 
-.resource-button.primary::before {
-  color: #176d7a;
-  background: rgba(255, 255, 255, 0.96);
-}
-
-.resource-code::before {
-  background: linear-gradient(135deg, #27313f, #111827);
-}
-
-.resource-models::before {
-  color: #1f2937;
-  background: linear-gradient(135deg, #ffd84d, #f2a900);
-}
-
-.resource-leaderboard::before {
-  background: linear-gradient(135deg, #c99a00, #8f6500);
-}
-
-.resource-cite::before {
-  background: linear-gradient(135deg, #6d5bd0, #3c6fbe);
-}
-
-.resource-button.muted {
-  color: #7a8494;
-  background: #f7f9fb;
-  pointer-events: none;
+.resource-link.primary:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #155f6b, #285aa1);
+  border-color: rgba(23, 109, 122, 0.28);
 }
 
 .logo-strip {
