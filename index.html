@@ -8,7 +8,7 @@
       content="TBot-SA1: 2D-3D Latent World Action Modeling for Generalizable Robot Control."
     />
     <title>TBot-SA1 | 2D-3D Latent World Action Modeling</title>
-    <link rel="icon" type="image/png" href="assets/logos/magicbot_icon.png" />
+    <link rel="icon" type="image/png" href="assets/logos/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +21,7 @@
     <header class="site-header">
       <nav class="nav container" aria-label="Primary navigation">
         <a class="brand" href="#top">
-          <img class="brand-icon" src="assets/logos/magicbot_icon.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="assets/logos/icon.png" alt="" aria-hidden="true" />
           <span>TBot-SA1</span>
         </a>
         <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -58,9 +58,12 @@
         </div>
 
         <div class="container hero-inner">
-          <img class="hero-logo" src="assets/logos/slogan_hero.png" alt="TBot-SA1" />
+          <img class="hero-logo" src="assets/logos/logo.png" alt="TBot-SA1" />
           <p class="venue">Manuscript, 2026</p>
-          <h1>2D-3D Latent World Action Modeling for Generalizable Robot Control</h1>
+          <h1>
+            <span class="title-line">2D-3D Latent World Action Modeling</span>
+            <span class="title-line">for Generalizable Robot Control</span>
+          </h1>
 
           <div class="authors" aria-label="Authors">
             <div class="author-row">
@@ -98,9 +101,9 @@
           </div>
 
           <div class="logo-strip compact" aria-label="Affiliation logos">
-            <img src="assets/logos/tongji-logo.png" alt="Tongji University logo" />
-            <img src="assets/logos/sii-logo.jpg" alt="Shanghai Innovation Institution logo" />
-            <img src="assets/logos/sig-logo.jpg" alt="Spatial Intelligence Group logo" />
+            <img class="affiliation-logo tongji-logo" src="assets/logos/tongji-logo.png" alt="Tongji University logo" />
+            <img class="affiliation-logo sii-logo" src="assets/logos/sii-logo.png" alt="Shanghai Innovation Institution logo" />
+            <img class="affiliation-logo sig-logo" src="assets/logos/sig-logo.png" alt="Spatial Intelligence Group logo" />
           </div>
         </div>
       </section>
@@ -172,41 +175,6 @@
         </div>
       </section>
 
-      <section class="section soft-section reveal">
-        <div class="container">
-          <div class="section-title">
-            <p class="eyebrow">Contributions</p>
-            <h2>What changes when spatial future states become part of the policy?</h2>
-          </div>
-          <div class="research-thread">
-            <article>
-              <span>01</span>
-              <h3>WSA objective</h3>
-              <p>
-                We make the future 3D scene an explicit prediction target, so the policy learns
-                what spatial state the robot should bring into existence.
-              </p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Coupled experts</h3>
-              <p>
-                A 2D Spatial Expert, 3D Spatial Expert, and 3D Action Expert exchange information
-                through structured attention rather than independent heads.
-              </p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Practical scale</h3>
-              <p>
-                With 6K hours of mixed demonstrations and about 1K hours of real-robot data, the 3B
-                model reaches strong simulation and real-world performance.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="paradigm" class="section container reveal">
         <div class="section-split">
           <div>
@@ -220,9 +188,18 @@
               </p>
             </div>
             <div class="equation-band" aria-label="Policy formulations">
-              <p><span>VLA</span> A<sub>t</sub> ~ p(A<sub>t</sub> | O<sub>t</sub>)</p>
-              <p><span>WAM</span> (V<sup>+</sup><sub>t</sub>, A<sub>t</sub>) ~ p(&middot; | O<sub>t</sub>)</p>
-              <p><span>WSA</span> (V<sup>+</sup><sub>t</sub>, G<sup>+</sup><sub>t</sub>, A<sub>t</sub>) ~ p(&middot; | O<sub>t</sub>)</p>
+              <p>
+                <span class="equation-label">VLA</span>
+                <span class="equation-text">A<sub>t</sub> ~ p(A<sub>t</sub> | O<sub>t</sub>)</span>
+              </p>
+              <p>
+                <span class="equation-label">WAM</span>
+                <span class="equation-text">(V<sup>+</sup><sub>t</sub>, A<sub>t</sub>) ~ p(&middot; | O<sub>t</sub>)</span>
+              </p>
+              <p>
+                <span class="equation-label">WSA</span>
+                <span class="equation-text">(V<sup>+</sup><sub>t</sub>, G<sup>+</sup><sub>t</sub>, A<sub>t</sub>) ~ p(&middot; | O<sub>t</sub>)</span>
+              </p>
             </div>
           </div>
 
@@ -242,12 +219,40 @@
       <section id="method" class="section soft-section reveal">
         <div class="container">
           <div class="section-title">
-            <p class="eyebrow">Method</p>
+            <p class="eyebrow">Method &amp; Contributions</p>
             <h2>Mixture-of-Transformers for 2D-3D world-action learning</h2>
             <p>
-              The model is organized around three capabilities: planning a visual subgoal,
-              predicting a latent 3D goal world, and producing continuous actions that reach it.
+              The main contributions are folded into the model design: TBot-SA1 plans a visual
+              subgoal, predicts a latent 3D goal world, and produces continuous actions that reach
+              the intended future state.
             </p>
+          </div>
+
+          <div class="research-thread method-contributions" aria-label="Method contributions">
+            <article>
+              <span>01</span>
+              <h3>WSA objective</h3>
+              <p>
+                The future 3D scene becomes an explicit prediction target, so the policy learns the
+                spatial state the robot should bring into existence.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Coupled experts</h3>
+              <p>
+                The 2D Spatial Expert, 3D Spatial Expert, and 3D Action Expert exchange information
+                through structured attention instead of independent heads.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Practical scale</h3>
+              <p>
+                With 6K hours of mixed demonstrations and about 1K hours of real-robot data, the 3B
+                model reaches strong simulation and real-world performance.
+              </p>
+            </article>
           </div>
 
           <div class="method-board">
