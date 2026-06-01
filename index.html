@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="TBot-SA1: a 3D-centric World-Spatial-Action Model for Generalizable Robot Control."
+      content="TBot-SA1: 3D-centric World-Spatial-Action Modeling for Generalizable Robot Control."
     />
-    <title>TBot-SA1 | a 3D-centric World-Spatial-Action Model</title>
+    <title>TBot-SA1 | 3D-centric World-Spatial-Action Modeling</title>
     <link rel="icon" type="image/png" href="assets/logos/icon.png" />
+    <script>
+      window.__initialHash = window.location.hash;
+      if (window.__initialHash) {
+        document.documentElement.classList.add("has-initial-hash");
+      }
+      if (window.__initialHash && "replaceState" in history) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,9 +39,9 @@
           <span></span>
         </button>
         <div class="nav-links" data-nav-links>
-          <a href="#framework">Framework</a>
+          <a href="#top">Top</a>
+          <a href="#overview">Overview</a>
           <a href="#performance">Performance</a>
-          <a href="#robochallenge">RoboChallenge</a>
           <a href="#analysis">Analysis</a>
           <a href="#citation">Citation</a>
         </div>
@@ -59,7 +68,7 @@
           <img class="hero-logo" src="assets/logos/logo.png" alt="TBot-SA1" />
           <p class="venue">Manuscript, 2026</p>
           <h1>
-            <span class="title-line">a 3D-centric World-Spatial-Action Model</span>
+            <span class="title-line">3D-centric World-Spatial-Action Modeling</span>
             <span class="title-line">for Generalizable Robot Control</span>
           </h1>
 
@@ -86,8 +95,12 @@
           </div>
 
           <div class="affiliations">
-            <span>School of Computer Science and Technology, Tongji University</span>
-            <span>Shanghai Innovation Institution</span>
+            <a href="https://cs.tongji.edu.cn/" target="_blank" rel="noopener">
+              School of Computer Science and Technology, Tongji University
+            </a>
+            <a href="https://www.sii.edu.cn/main.htm" target="_blank" rel="noopener">
+              Shanghai Innovation Institution
+            </a>
           </div>
 
           <div class="resource-actions" aria-label="Project resources">
@@ -114,50 +127,15 @@
         </div>
       </section>
 
-      <section id="framework" class="section container reveal">
-        <div class="project-story">
-          <div class="section-title">
-            <p class="eyebrow">WSA Framework</p>
-            <h2>A 3D-centric World-Spatial-Action model</h2>
+      <section id="overview" class="section soft-section reveal">
+        <div class="container project-story">
+          <div class="section-title centered">
+            <p class="eyebrow">Overview</p>
+            <h2>WSA Framework</h2>
             <p>
-              TBot-SA1 is an embodied foundation model that connects instruction-aligned visual
-              planning, causal 3D world modeling, and closed-loop robot action generation.
+              TBot-SA1 is a World-Spatial-Action embodied foundation model for
+              generalizable robot control across simulation and real-world manipulation tasks.
             </p>
-          </div>
-
-          <div class="story-layout">
-            <div class="story-copy">
-              <p>
-                Existing VLA and WAM policies are often limited by 2D-centric prediction targets.
-                TBot-SA1 introduces <strong>World-Spatial-Action (WSA)</strong> modeling to learn
-                robot control in a shared 2D-3D latent space, where semantic understanding, spatial
-                world modeling, and physical execution are trained together.
-              </p>
-              <p>
-                The model reasons about bidirectional causality between robot actions and 3D scene
-                evolution: actions should change the world in physically meaningful ways, and the
-                desired 3D world state should guide the action trajectory.
-              </p>
-            </div>
-
-            <aside class="stat-board" aria-label="Key numbers">
-              <article>
-                <strong>6K+</strong>
-                <span>hours of pretraining data</span>
-              </article>
-              <article>
-                <strong>600M</strong>
-                <span>training frames</span>
-              </article>
-              <article>
-                <strong>300+</strong>
-                <span>robot-control tasks</span>
-              </article>
-              <article>
-                <strong>92.7%</strong>
-                <span>RoboTwin2.0 hard randomized SR</span>
-              </article>
-            </aside>
           </div>
 
           <figure class="figure-card overview-figure">
@@ -165,63 +143,105 @@
               src="assets/figures/overview.png"
               alt="Overview of TBot-SA1 pretraining data, WSA model components, and downstream performance."
             />
-            <figcaption>
-              Overall view of TBot-SA1: heterogeneous pretraining data feeds the WSA model, which
-              couples visual planning, 3D world modeling, and action generation for downstream robot
-              control.
-            </figcaption>
           </figure>
 
-          <div class="claim-strip" aria-label="WSA components">
-            <span>2D visual planning</span>
-            <span>3D world prediction</span>
-            <span>3D inverse dynamics</span>
-            <span>bidirectional causality</span>
+          <div class="overview-points" aria-label="TBot-SA1 key points">
+            <p>
+              <span class="point-marker" aria-hidden="true">🌟</span>
+              <strong>Unified WSA Modeling</strong>
+              <span>
+                WSA modeling unifies semantic understanding, 3D world modeling, and physical
+                execution.
+              </span>
+            </p>
+            <p>
+              <span class="point-marker" aria-hidden="true">🌟</span>
+              <strong>Bidirectional 3D Causality</strong>
+              <span>
+                Learns both action-conditioned scene dynamics and 3D inverse dynamics.
+              </span>
+            </p>
+            <p>
+              <span class="point-marker" aria-hidden="true">🌟</span>
+              <strong>Mixture-of-Transformers</strong>
+              <span>
+                Coordinates 2D planning, 3D prediction, and 3D action generation with shared
+                dependency rules.
+              </span>
+            </p>
+            <p>
+              <span class="point-marker" aria-hidden="true">🌟</span>
+              <strong>Data-Efficient Pretraining</strong>
+              <span>
+                Pretraining on 6,000 demonstration hours yields strong simulation and real-world
+                manipulation performance.
+              </span>
+            </p>
+            <p>
+              <span class="point-marker" aria-hidden="true">🌟</span>
+              <strong>Superior Performance</strong>
+              <span>
+                State-of-the-art results across simulation and real-world robot manipulation tasks,
+                achieved by our open-source model.
+              </span>
+            </p>
           </div>
 
-          <div class="method-board">
+          <div class="framework-block" aria-label="World-Spatial-Action modeling details">
+            <div class="section-title framework-block-title">
+              <h2>World-Spatial-Action modeling</h2>
+              <p>
+                TBot-SA1 learns robot control in a shared 2D-3D latent space, unifying
+                instruction-aligned visual planning, action-conditioned 3D world modeling, and
+                3D-aware action generation.
+              </p>
+            </div>
+
             <figure class="figure-card wide-figure">
               <img
                 src="assets/figures/framework_01_transparent.png"
                 alt="TBot-SA1 architecture with 2D Spatial Expert, 3D Spatial Expert, and 3D Action Expert."
               />
               <figcaption>
-                TBot-SA1 uses coupled 2D Spatial, 3D Spatial, and 3D Action experts to align
-                visual subgoals, future 3D states, and executable action chunks.
+                The framework couples 2D Spatial, 3D Spatial, and 3D Action experts with
+                3D-centric bidirectional causal attention, so visual subgoals, future 3D states, and
+                action chunks are optimized together.
               </figcaption>
             </figure>
 
-            <div class="framework-highlights" aria-label="TBot-SA1 highlights">
-              <h3>Highlights</h3>
-              <ul>
-                <li>
-                  <strong>The Core:</strong>
-                  TBot-SA1 learns robot control as World-Spatial-Action modeling, connecting what
-                  the instruction means, how the 3D scene should change, and what actions make that
-                  change happen.
-                </li>
-                <li>
-                  <strong>The Difference:</strong>
-                  Instead of relying on 2D visual prediction alone, the model learns bidirectional
-                  3D world-action causality: actions shape the world, and the intended 3D world
-                  guides actions.
-                </li>
-                <li>
-                  <strong>The Architecture:</strong>
-                  A Mixture-of-Transformers framework coordinates visual planning, 3D world
-                  prediction, and continuous action generation with shared dependency rules.
-                </li>
-                <li>
-                  <strong>The Fuel:</strong>
-                  The model is pretrained on 6,000 hours of heterogeneous demonstrations from
-                  simulation, real robots, and egocentric human videos.
-                </li>
-                <li>
-                  <strong>The Output:</strong>
-                  A fully open-source 3B policy with strong results across RoboTwin2.0,
-                  RoboChallenge, and real-world robot manipulation tasks.
-                </li>
-              </ul>
+            <div class="story-layout">
+              <div class="story-copy">
+                <p>
+                  Existing VLA and WAM policies mainly model 2D semantic-action or 2D
+                  video-action causality. <strong>World-Spatial-Action (WSA)</strong> lifts this
+                  process into 3D by jointly learning subgoal visual planning, action-conditioned 3D
+                  scene prediction, and 3D inverse dynamics.
+                </p>
+                <p>
+                  This builds a bidirectional world-action loop: robot actions explain how the 3D
+                  scene evolves, while the desired 3D scene evolution guides continuous action
+                  generation for closed-loop execution.
+                </p>
+              </div>
+
+              <aside class="stat-board" aria-label="Key numbers">
+                <article>
+                  <strong>6K+</strong>
+                  <span>hours of pretraining data</span>
+                </article>
+                <article>
+                  <strong>8</strong>
+                  <span>embodiments</span>
+                </article>
+                <article>
+                  <strong>300+</strong>
+                  <span>robot-control tasks</span>
+                </article>
+                <article>
+                  <strong class="stat-value-wide">92.7%</strong>
+                  <span>RoboTwin2.0 SR</span>
+                </article>
+              </aside>
             </div>
           </div>
         </div>
@@ -229,226 +249,379 @@
 
       <section id="performance" class="section soft-section reveal">
         <div class="container">
-          <div class="section-title centered">
+          <div class="section-title centered performance-title">
             <p class="eyebrow">Performance</p>
-            <h2>Real-World Robot Experiments</h2>
-            <p>
-              We first show physical deployment videos, then summarize the RoboTwin2.0 benchmark
-              results reported in the paper.
+          </div>
+
+          <div class="performance-block">
+            <div class="performance-block-header">
+              <div>
+                <span class="block-index">01</span>
+                <h3>Real-World Experiments</h3>
+              </div>
+              <p>
+                In real-world robot experiments, TBot-SA1 demonstrates strong performance on a series of complex tabletop manipulation tasks,
+                covering single-arm AgileX PiPER and dual-arm ARX Lift2 platforms.
+              </p>
+            </div>
+
+            <div class="video-grid demo-grid" aria-label="Real-world experiment videos">
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/organization.mp4" type="video/mp4" />
+                </video>
+                <h3>Object Organization</h3>
+                <p>Tidy up the table by sorting the toys, stationery, and trash into their designated containers.</p>
+              </article>
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/bottles.mp4" type="video/mp4" />
+                </video>
+                <h3>Trash Cleaning</h3>
+                <p>Pick up the trash, hand it over to the other gripper, and place it into the trash bin.</p>
+              </article>
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/sweep.mp4" type="video/mp4" />
+                </video>
+                <h3>Sweep Trash</h3>
+                <p>Sweep the trash into the dustpan using a broom.</p>
+              </article>
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/rankRGB.mp4" type="video/mp4" />
+                </video>
+                <h3>RGB Block Sorting</h3>
+                <p>Position red, green, and blue blocks from left to right in the specified sequence.</p>
+              </article>
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/zip_bag.mp4" type="video/mp4" />
+                </video>
+                <h3>Unzip Pencil Bag</h3>
+                <p>Grasp the pencil bag, unzip it, and place it back onto the tabletop.</p>
+              </article>
+              <article>
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/toys.mp4" type="video/mp4" />
+                </video>
+                <h3>Toy Box Organization</h3>
+                <p>Pick up toys from the desktop, place them into the toy box, and arrange them neatly inside.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="performance-block">
+            <div class="performance-block-header">
+              <div>
+                <span class="block-index">02</span>
+                <h3>RoboTwin2.0 Performance</h3>
+              </div>
+              <p>
+                RoboTwin2.0 benchmark evaluates multi-task generalization in simulation. TBot-SA1 reaches 92.2% on the clean (easy) setting
+                and 92.7% on the randomized (hard) setting,
+                showing stable and robust performance across diverse ALOHA manipulation tasks.
+              </p>
+            </div>
+
+            <div class="result-cards performance-metrics" aria-label="RoboTwin2.0 result summary">
+              <article>
+                <span>Easy SR</span>
+                <strong>92.2%</strong>
+                <p>Average success under the clean (easy) setting.</p>
+              </article>
+              <article>
+                <span>Hard SR</span>
+                <strong>92.7%</strong>
+                <p>Average success under the randomized (hard) setting.</p>
+              </article>
+              <article>
+                <span>Task coverage</span>
+                <strong>50</strong>
+                <p>Manipulation tasks.</p>
+              </article>
+            </div>
+
+            <div class="result-table-wrap full-width-table">
+              <table class="result-table benchmark-table">
+                <colgroup>
+                  <col class="metric-col" />
+                  <col class="method-col" span="8" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>&pi;<sub>0</sub></th>
+                    <th>&pi;<sub>0.5</sub></th>
+                    <th>ABot-M0</th>
+                    <th>Motus</th>
+                    <th>InternVLA-A1</th>
+                    <th>LingBot-VA</th>
+                    <th>Fast-WAM</th>
+                    <th>TBot-SA1</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="highlight-row">
+                    <td>Avg. Success (Hard)</td>
+                    <td>58.40%</td>
+                    <td>76.76%</td>
+                    <td>85.08%</td>
+                    <td>87.02%</td>
+                    <td>89.64%</td>
+                    <td>91.50%</td>
+                    <td>91.78%</td>
+                    <td>92.70%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="video-grid robotwin-grid" aria-label="RoboTwin2.0 rollout videos">
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/双臂协同/handoverblock01.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Handover Block</h3>
+                  <span class="video-tag">Collaboration</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/双臂协同/liftpot.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Lift Pot</h3>
+                  <span class="video-tag">Collaboration</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/双臂协同/put_bottles_dustbin.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Put Bottles</h3>
+                  <span class="video-tag">Collaboration</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/双臂协同/put_object_cabinet.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Cabinet Placement</h3>
+                  <span class="video-tag">Collaboration</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/堆叠排序/blocks_ranking_rgb2.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>RGB Block Ranking</h3>
+                  <span class="video-tag">Sorting</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/堆叠排序/blocks_ranking_size1.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Size Block Ranking</h3>
+                  <span class="video-tag">Sorting</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/堆叠排序/stacks_blocks_three.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Stack Three Blocks</h3>
+                  <span class="video-tag">Stacking</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/堆叠排序/stack_bowls_two.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Stack Two Bowls</h3>
+                  <span class="video-tag">Stacking</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/开合交互/openlaptop.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Open Laptop</h3>
+                  <span class="video-tag">Open-close</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/开合交互/open_laptop02.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Open Laptop II</h3>
+                  <span class="video-tag">Open-close</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/开合交互/open_microwave.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Open Microwave</h3>
+                  <span class="video-tag">Open-close</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/开合交互/open_microwave02.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Open Microwave II</h3>
+                  <span class="video-tag">Open-close</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/空间放置/place_bread_basket.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Place Bread</h3>
+                  <span class="video-tag">Placement</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/空间放置/place_dual_shoe01.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Place Shoes</h3>
+                  <span class="video-tag">Placement</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/空间放置/place_fan.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Place Fan</h3>
+                  <span class="video-tag">Placement</span>
+                </div>
+              </article>
+              <article>
+                <video class="video-player" controls preload="auto" playsinline data-preview-frame="0.08">
+                  <source src="assets/videos/Robotwin_demo/空间放置/plaecea2bleft.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Place A to B</h3>
+                  <span class="video-tag">Placement</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div id="robochallenge" class="performance-block">
+            <div class="performance-block-header">
+              <div>
+                <span class="block-index">03</span>
+                <h3>RoboChallenge V2.0 CVPR 2026 Performance</h3>
+              </div>
+              <a
+                class="resource-link leaderboard-link"
+                href="https://robochallenge.ai/competition/cvpr"
+                target="_blank"
+                rel="noopener"
+              >Leaderboard</a>
+            </div>
+
+            <p class="performance-copy">
+              Our fully open-source WSA model TBot-SA1 ranked
+              <span class="performance-rank">4th worldwide</span>
+              on the RoboChallenge CVPR 2026 leaderboard (Team: MagicBot). This indicates that
+              TBot-SA1 is reliable in both custom-designed real-world setups and large-scale
+              real-robot-based benchmarking, demonstrating superior generalizable robot control
+              capabilities.
             </p>
+
+            <div class="video-grid challenge-grid" aria-label="RoboChallenge V2.0 CVPR 2026 videos">
+              <article class="challenge-card challenge-ultra challenge-featured">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/pick_out_the_green_blocks_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Pick out the green blocks</h3>
+                  <span class="video-speed">4x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-wide">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/arrange_fruits_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Arrange fruits</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-wide">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/item_classification_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Item classification</h3>
+                  <span class="video-speed">4x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-ultra">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/hang_the_cup_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Hang the cup</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-ultra">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/wipe_the_table2_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Wipe the table</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-standard challenge-center-left">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/hold_the_tray_with_both_hands_videos_front.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Hold the tray with both hands</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-standard challenge-center-right">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/stack_bowls_videos_front.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Stack bowls</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+            </div>
           </div>
-
-          <div class="content-block-heading">
-            <h3>Real robot rollouts</h3>
-            <p>Videos are loaded only when played.</p>
-          </div>
-
-          <div class="video-grid demo-grid" aria-label="Real robot videos">
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/organization.mp4" type="video/mp4" />
-              </video>
-              <h3>Object Organization</h3>
-              <p>Tidy up the table by sorting the toys, stationery, and trash into their designated containers.</p>
-            </article>
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/bottles.mp4" type="video/mp4" />
-              </video>
-              <h3>Trash Cleaning</h3>
-              <p>Pick up the trash with nearest gripper, hand it over to the other gripper, and place it into the trash bin.</p>
-            </article>
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/sweep.mp4" type="video/mp4" />
-              </video>
-              <h3>Sweep Trash</h3>
-              <p>Sweep the trash into the dustpan using a broom.</p>
-            </article>
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/rankRGB.mp4" type="video/mp4" />
-              </video>
-              <h3>RGB Block Sorting</h3>
-              <p>Position red block, green block, and blue block from left to right in the specified sequence.</p>
-            </article>
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/zip_bag.mp4" type="video/mp4" />
-              </video>
-              <h3>Unzip Pencil Bag</h3>
-              <p>Grasp the pencil bag, unzip it, and place it back onto the tabletop.</p>
-            </article>
-            <article>
-              <video class="video-player" controls preload="none" playsinline>
-                <source src="assets/videos/toys.mp4" type="video/mp4" />
-              </video>
-              <h3>Toy Box Organization</h3>
-              <p>Pick up the toys from the desktop, place them into the toy box, and arrange them neatly inside.</p>
-            </article>
-          </div>
-
-          <div class="result-cards" aria-label="Main result summary">
-            <article>
-              <span>Real-world SR</span>
-              <strong>77%</strong>
-              <p>Average success rate across seven tabletop tasks.</p>
-            </article>
-            <article>
-              <span>Real-world C</span>
-              <strong>83%</strong>
-              <p>Average task completeness under physical deployment.</p>
-            </article>
-            <article>
-              <span>RoboTwin clean</span>
-              <strong>92%</strong>
-              <p>Matches or exceeds larger WAM baselines with a 3B policy.</p>
-            </article>
-            <article>
-              <span>RoboTwin randomized</span>
-              <strong>93%</strong>
-              <p>Maintains performance under randomized visual conditions.</p>
-            </article>
-            <article>
-              <span>RoboChallenge CVPR</span>
-              <strong>#4</strong>
-              <p>Team MagicBot ranked 4th worldwide on the CVPR 2026 leaderboard.</p>
-            </article>
-          </div>
-
-          <div class="content-block-heading">
-            <h3>RoboTwin2.0 benchmark</h3>
-            <p>Randomized hard setting, averaged over 50 simulated ALOHA manipulation tasks.</p>
-          </div>
-
-          <div class="result-table-wrap full-width-table">
-            <table class="result-table benchmark-table">
-              <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>&pi;<sub>0</sub></th>
-                  <th>&pi;<sub>0.5</sub></th>
-                  <th>ABot-M0</th>
-                  <th>Motus</th>
-                  <th>InternVLA-A1</th>
-                  <th>LingBot-VA</th>
-                  <th>Fast-WAM</th>
-                  <th>TBot-SA1</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="highlight-row">
-                  <td>Avg. Success (Hard)</td>
-                  <td>58.40%</td>
-                  <td>76.76%</td>
-                  <td>85.08%</td>
-                  <td>87.02%</td>
-                  <td>89.64%</td>
-                  <td>91.50%</td>
-                  <td>91.78%</td>
-                  <td>92.70%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section id="robochallenge" class="section container reveal">
-        <div class="section-title centered">
-          <p class="eyebrow">RoboChallenge Results</p>
-          <h2>Competition rollouts across real-robot manipulation tasks</h2>
-          <p>
-            TBot-SA1 powered Team MagicBot to rank 4th worldwide on the RoboChallenge CVPR
-            2026 leaderboard.
-          </p>
-        </div>
-
-        <div class="video-grid challenge-grid" aria-label="RoboChallenge videos">
-          <article class="challenge-card challenge-ultra challenge-featured">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/pick_out_the_green_blocks_merged.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Pick green blocks</h3>
-              <span class="video-speed">4x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-wide">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/arrange_fruits_merged.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Arrange fruits</h3>
-              <span class="video-speed">1x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-wide">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/item_classification_merged.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Item classification</h3>
-              <span class="video-speed">4x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-ultra">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/hang_the_cup_merged.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Hang the cup</h3>
-              <span class="video-speed">1x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-ultra">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/wipe_the_table2_merged.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Wipe the table</h3>
-              <span class="video-speed">1x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-standard challenge-center-left">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/hold_the_tray_with_both_hands_videos_front.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Hold the tray</h3>
-              <span class="video-speed">1x speed</span>
-            </div>
-          </article>
-          <article class="challenge-card challenge-standard challenge-center-right">
-            <video class="video-player" controls preload="none" playsinline>
-              <source src="assets/videos/robochallenge/stack_bowls_videos_front.mp4" type="video/mp4" />
-            </video>
-            <div class="video-caption">
-              <h3>Stack bowls</h3>
-              <span class="video-speed">1x speed</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="section-actions">
-          <a
-            class="resource-link primary"
-            href="https://robochallenge.ai/competition/cvpr"
-            target="_blank"
-            rel="noopener"
-          >RoboChallenge Leaderboard</a>
         </div>
       </section>
 
       <section id="analysis" class="section soft-section reveal">
         <div class="container">
           <div class="section-title">
-            <p class="eyebrow">Analysis &amp; Recipe</p>
+            <p class="eyebrow">Analysis</p>
             <h2>What makes WSA work</h2>
-            <p>
-              We summarize the core ablations, visualize the WSA prediction process, and report the
-              data mixture used to train TBot-SA1.
-            </p>
           </div>
 
           <div class="figure-grid">
@@ -458,8 +631,9 @@
                 alt="Ablation study comparing action-only, visual planning, 3D world prediction, and full WSA modeling."
               />
               <figcaption>
-                WSA ablation: full WSA modeling improves RoboTwin2.0 performance over action-only
-                and single-auxiliary-objective variants.
+                WSA ablation: visual planning and 3D world prediction each improve over the
+                action-only baseline, while full WSA modeling achieves the best average performance,
+                showing that 2D semantic cues and 3D spatial reasoning are complementary.
               </figcaption>
             </figure>
             <figure class="figure-card">
@@ -468,8 +642,9 @@
                 alt="Pretraining study comparing from-scratch, post-train only, pre-train only, and pre/post-train settings."
               />
               <figcaption>
-                Pretraining study: combining WSA pretraining and post-training yields the strongest
-                downstream performance.
+                Pretraining study: WSA pretraining builds stronger general manipulation priors than
+                post-training alone, and applying WSA in both pretraining and post-training yields
+                the strongest downstream performance.
               </figcaption>
             </figure>
           </div>
@@ -485,88 +660,6 @@
               that spatial goal.
             </figcaption>
           </figure>
-
-          <div class="table-grid recipe-grid">
-            <div class="result-table-wrap">
-              <h3>Data recipe</h3>
-              <table class="result-table">
-                <thead>
-                  <tr>
-                    <th>Data source</th>
-                    <th>Type</th>
-                    <th>Frames</th>
-                    <th>Tasks</th>
-                    <th>Weight</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>InternData-A1</td>
-                    <td>Simulation</td>
-                    <td>396M</td>
-                    <td>70</td>
-                    <td>0.64</td>
-                  </tr>
-                  <tr>
-                    <td>RoboTwin</td>
-                    <td>Simulation</td>
-                    <td>17M</td>
-                    <td>50</td>
-                    <td>0.08</td>
-                  </tr>
-                  <tr>
-                    <td>AgiBot-World</td>
-                    <td>Real robot</td>
-                    <td>206M</td>
-                    <td>217</td>
-                    <td>0.18</td>
-                  </tr>
-                  <tr>
-                    <td>RoboChallenge</td>
-                    <td>Real robot</td>
-                    <td>5M</td>
-                    <td>30</td>
-                    <td>0.02</td>
-                  </tr>
-                  <tr>
-                    <td>EgoDex</td>
-                    <td>Human</td>
-                    <td>68M</td>
-                    <td>194</td>
-                    <td>0.08</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="result-table-wrap">
-              <h3>Pretraining scale</h3>
-              <table class="result-table compact-table">
-                <tbody>
-                  <tr>
-                    <th>Total demonstrations</th>
-                    <td>6,000+ hours</td>
-                  </tr>
-                  <tr>
-                    <th>Real-robot demonstrations</th>
-                    <td>~1,000 hours</td>
-                  </tr>
-                  <tr>
-                    <th>Frame scale</th>
-                    <td>600M frames</td>
-                  </tr>
-                  <tr>
-                    <th>Robot embodiments</th>
-                    <td>8 robots</td>
-                  </tr>
-                  <tr>
-                    <th>Robot-control tasks</th>
-                    <td>300+ tasks</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -579,7 +672,7 @@
         <div class="bibtex-card">
           <button class="copy-button" type="button" data-copy-target="bibtex">Copy</button>
           <pre id="bibtex"><code>@misc{jiang2026tbotsa1,
-  title     = {TBot-SA1: a 3D-centric World-Spatial-Action Model for Generalizable Robot Control},
+  title     = {TBot-SA1: 3D-centric World-Spatial-Action Modeling for Generalizable Robot Control},
   author    = {Jiang, Jiahao and Zhang, Jianing and Yin, Zhenhan and Chen, Ruidong and Wang, Sen and Yu, Zhaoshu and Zeng, Pengpeng and Cao, XiaoFeng and Wang, Xuanhan and Song, Jingkuan and Shen, Heng Tao},
   year      = {2026},
   note      = {Manuscript}
