@@ -131,7 +131,7 @@
         <div class="container project-story">
           <div class="section-title centered">
             <p class="eyebrow">Overview</p>
-            <h2>WSA Framework</h2>
+            <h2>Framework</h2>
             <p>
               TBot-SA1 is a World-Spatial-Action embodied foundation model for
               generalizable robot control across simulation and real-world manipulation tasks.
@@ -257,15 +257,15 @@
             <div class="performance-block-header">
               <div>
                 <span class="block-index">01</span>
-                <h3>Real-World Experiments</h3>
+                <h3>Real-World Foundational Experiments</h3>
               </div>
               <p>
-                In real-world robot experiments, TBot-SA1 demonstrates strong performance on a series of complex tabletop manipulation tasks,
+                In real-world experiments of basic capacity, TBot-SA1 demonstrates strong performance on a series of complex tabletop manipulation tasks,
                 covering single-arm AgileX PiPER and dual-arm ARX Lift2 platforms.
               </p>
             </div>
 
-            <div class="video-grid demo-grid" aria-label="Real-world experiment videos">
+            <div class="video-grid demo-grid" aria-label="Foundational real-world experiment videos">
               <article>
                 <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
                   <source src="assets/videos/organization.mp4" type="video/mp4" />
@@ -311,10 +311,101 @@
             </div>
           </div>
 
-          <div class="performance-block">
+          <div id="robochallenge" class="performance-block">
             <div class="performance-block-header">
               <div>
                 <span class="block-index">02</span>
+                <h3>RoboChallenge V2.0 Real-World-Based Benchmarking</h3>
+              </div>
+              <a
+                class="resource-link leaderboard-link"
+                href="https://robochallenge.ai/competition/cvpr"
+                target="_blank"
+                rel="noopener"
+              >Leaderboard</a>
+            </div>
+
+            <p class="performance-copy">
+              Our fully open-source WSA model TBot-SA1 ranked
+              <span class="performance-rank">4th/100+ teams</span>
+              on the <strong>RoboChallenge V2.0 CVPR 2026 Generalist leaderboard</strong> (Team: MagicBot), which demonstrates
+              the effectiveness of training a single generalist model across diverse complicated real-world tasks. This indicates that
+              TBot-SA1 is reliable in both custom-designed real-world setups and large-scale
+              real-robot-based benchmarking, demonstrating superior generalizable robot control
+              capabilities.
+            </p>
+
+            <div class="video-grid challenge-grid" aria-label="Real-world-based benchmarking videos">
+              <article class="challenge-card challenge-ultra challenge-featured">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/pick_out_the_green_blocks_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Pick out the green blocks</h3>
+                  <span class="video-speed">4x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-wide">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/arrange_fruits_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Arrange fruits</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-wide">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/item_classification_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Item classification</h3>
+                  <span class="video-speed">4x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-ultra">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/hang_the_cup_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Hang the cup</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-ultra">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/wipe_the_table2_merged.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Wipe the table</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-standard challenge-center-left">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/hold_the_tray_with_both_hands_videos_front.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Hold the tray with both hands</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+              <article class="challenge-card challenge-standard challenge-center-right">
+                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
+                  <source src="assets/videos/robochallenge/stack_bowls_videos_front.mp4" type="video/mp4" />
+                </video>
+                <div class="video-caption">
+                  <h3>Stack bowls</h3>
+                  <span class="video-speed">1x speed</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="performance-block">
+            <div class="performance-block-header">
+              <div>
+                <span class="block-index">03</span>
                 <h3>RoboTwin2.0 Performance</h3>
               </div>
               <p>
@@ -525,95 +616,6 @@
             </div>
           </div>
 
-          <div id="robochallenge" class="performance-block">
-            <div class="performance-block-header">
-              <div>
-                <span class="block-index">03</span>
-                <h3>RoboChallenge V2.0 CVPR 2026 Performance</h3>
-              </div>
-              <a
-                class="resource-link leaderboard-link"
-                href="https://robochallenge.ai/competition/cvpr"
-                target="_blank"
-                rel="noopener"
-              >Leaderboard</a>
-            </div>
-
-            <p class="performance-copy">
-              Our fully open-source WSA model TBot-SA1 ranked
-              <span class="performance-rank">4th worldwide</span>
-              on the RoboChallenge CVPR 2026 leaderboard (Team: MagicBot). This indicates that
-              TBot-SA1 is reliable in both custom-designed real-world setups and large-scale
-              real-robot-based benchmarking, demonstrating superior generalizable robot control
-              capabilities.
-            </p>
-
-            <div class="video-grid challenge-grid" aria-label="RoboChallenge V2.0 CVPR 2026 videos">
-              <article class="challenge-card challenge-ultra challenge-featured">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/pick_out_the_green_blocks_merged.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Pick out the green blocks</h3>
-                  <span class="video-speed">4x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-wide">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/arrange_fruits_merged.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Arrange fruits</h3>
-                  <span class="video-speed">1x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-wide">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/item_classification_merged.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Item classification</h3>
-                  <span class="video-speed">4x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-ultra">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/hang_the_cup_merged.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Hang the cup</h3>
-                  <span class="video-speed">1x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-ultra">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/wipe_the_table2_merged.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Wipe the table</h3>
-                  <span class="video-speed">1x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-standard challenge-center-left">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/hold_the_tray_with_both_hands_videos_front.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Hold the tray with both hands</h3>
-                  <span class="video-speed">1x speed</span>
-                </div>
-              </article>
-              <article class="challenge-card challenge-standard challenge-center-right">
-                <video class="video-player" controls preload="metadata" playsinline data-preview-frame="0.12">
-                  <source src="assets/videos/robochallenge/stack_bowls_videos_front.mp4" type="video/mp4" />
-                </video>
-                <div class="video-caption">
-                  <h3>Stack bowls</h3>
-                  <span class="video-speed">1x speed</span>
-                </div>
-              </article>
-            </div>
-          </div>
         </div>
       </section>
 

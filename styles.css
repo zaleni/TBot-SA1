@@ -1225,7 +1225,7 @@ pre,
 .performance-block-header {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-  align-items: end;
+  align-items: center;
   gap: 28px;
 }
 
