@@ -2198,6 +2198,7 @@ pre,
 }
 
 .result-table.benchmark-table thead th:last-child {
+  color: var(--accent);
   font-weight: 900;
 }
 
@@ -2208,6 +2209,7 @@ pre,
 }
 
 .result-table.benchmark-table .highlight-row td:last-child {
+  color: var(--accent);
   font-weight: 900;
 }
 
