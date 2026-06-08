@@ -2231,6 +2231,33 @@ pre,
   font-weight: 800;
 }
 
+.citation-placeholder {
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid rgba(23, 109, 122, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 248, 0.92)),
+    linear-gradient(135deg, rgba(23, 109, 122, 0.1), rgba(60, 111, 190, 0.08));
+  box-shadow: 0 16px 42px rgba(23, 32, 51, 0.07);
+}
+
+.citation-placeholder p {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.citation-placeholder .citation-status {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
 .bibtex-card {
   margin-top: 24px;
   position: relative;
