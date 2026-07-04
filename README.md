@@ -20,7 +20,7 @@
 
 <div align="center">
 
-## NOTICE
+## NOTICE❗️❗️
 
 <strong>This repository is archived and no longer actively maintained.</strong><br>
 Ongoing development has moved to <a href="https://github.com/zaleni/WSA"><strong>zaleni/WSA</strong></a>.
