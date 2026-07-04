@@ -18,10 +18,14 @@
   <a href="https://robochallenge.ai/competition/cvpr"><img src="https://img.shields.io/badge/%F0%9F%8F%86%20Leaderboard-RoboChallenge-C99A00" alt="RoboChallenge leaderboard"></a>
 </p>
 
-<p align="center">
-  <strong>Notice:</strong> this repository is no longer actively maintained.
-  Ongoing development has moved to <a href="https://github.com/zaleni/WSA">WSA</a>.
-</p>
+<div align="center">
+
+## NOTICE
+
+<strong>This repository is archived and no longer actively maintained.</strong><br>
+Ongoing development has moved to <a href="https://github.com/zaleni/WSA"><strong>zaleni/WSA</strong></a>.
+
+</div>
 
 <br>
 
