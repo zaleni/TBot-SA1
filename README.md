@@ -36,6 +36,9 @@ Ongoing development has moved to <a href="https://github.com/zaleni/WSA"><strong
 <a id="news"></a>
 
 ## 🗞️ News
+## NOTICE❗️❗️
+<strong>This repository is archived and no longer actively maintained.</strong><br>
+Ongoing development has moved to <a href="https://github.com/zaleni/WSA"><strong>zaleni/WSA</strong></a>.
 
 - [2026-05-18]: 🏆 Our fully open-source WSA model **TBot-SA1 ranked 4th/100+ teams on the [RoboChallenge CVPR 2026 leaderboard](https://robochallenge.ai/competition/cvpr).** (Team: MagicBot)
 - [2026-05-31]: 🎉 Release of TBot-SA1 training, evaluation, and inference code.
